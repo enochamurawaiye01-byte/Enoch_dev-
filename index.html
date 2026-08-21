@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="logo 2.jpeg">
+
+    <title>Enoch.Dev — Website Developer & Designer in Nigeria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #0c0c0c;
+            --black-card: #181818;
+            --black-soft: #232323;
+            --white: #ffffff;
+            --off-white: #f6f4f0;
+            --orange: #D2601A;
+            --orange-dark: #A34C14;
+            --orange-light: #F0A868;
+            --muted: #9a9a9a;
+            --muted-dark: #5c5c5c;
+            --font-display: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --radius: 14px;
+            --ease: cubic-bezier(.16, .84, .44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--off-white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(28px, 4.2vw, 44px);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .section {
+            padding: 110px 8vw;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity .8s var(--ease), transform .8s var(--ease);
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger>* {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .reveal-stagger.in-view>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger.in-view>*:nth-child(1) {
+            transition-delay: .02s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(2) {
+            transition-delay: .1s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(3) {
+            transition-delay: .18s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(4) {
+            transition-delay: .26s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(5) {
+            transition-delay: .34s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(6) {
+            transition-delay: .42s;
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-46px);
+            transition: opacity .9s var(--ease), transform .9s var(--ease);
+        }
+
+        .reveal-left.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(46px);
+            transition: opacity .9s var(--ease), transform .9s var(--ease);
+        }
+
+        .reveal-right.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14.5px;
+            transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .3s, color .3s;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+            box-shadow: 0 0 0 0 rgba(210, 96, 26, .4);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px -8px rgba(210, 96, 26, .55);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid currentColor;
+            color: inherit;
+        }
+
+        .btn-outline:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-white:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-black {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-black:hover {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ===== NAV ===== */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--black);
+            padding: 16px 6vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: padding .35s var(--ease), box-shadow .35s var(--ease);
+        }
+
+        #navbar.scrolled {
+            padding: 10px 6vw;
+            box-shadow: 0 8px 30px -12px rgba(0, 0, 0, .6);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            background: linear-gradient(145deg, var(--orange), var(--orange-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .logo .accent {
+            color: var(--orange);
+        }
+
+        /* Glowing logo wrapper */
+        .logo-wrap {
+            width: 78px;
+            height: 78px;
+            border-radius: 9px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: box-shadow .35s var(--ease), transform .35s var(--ease);
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            border-radius: 9px;
+            object-fit: cover;
+        }
+
+        .logo-wrap:hover {
+            box-shadow:
+                0 0 4px var(--orange),
+                0 0 10px var(--orange-light);
+            transform: scale(1.03);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-size: 14.5px;
+            font-weight: 500;
+            position: relative;
+            padding: 4px 0;
+            transition: color .3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1.5px;
+            background: var(--orange);
+            transition: width .35s var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta-wrap {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            padding: 6px;
+        }
+
+        .nav-burger span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        .nav-burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-burger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ===== HERO ===== */
+        #home {
+            background: var(--black);
+            color: var(--white);
+            padding: 170px 8vw 120px;
+            position: relative;
+            overflow: hidden;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle, rgba(210, 96, 26, .28), transparent 70%);
+            border-radius: 50%;
+            filter: blur(10px);
+            animation: float1 9s ease-in-out infinite;
+        }
+
+        #home::after {
+            content: '';
+            position: absolute;
+            bottom: -25%;
+            left: -8%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(210, 96, 26, .12), transparent 70%);
+            border-radius: 50%;
+            animation: float2 11s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-30px, 40px);
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, -30px);
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .06em;
+            color: var(--orange-light);
+            margin-bottom: 26px;
+            opacity: 0;
+            animation: fadeUp .8s var(--ease) .1s forwards;
+        }
+
+        .hero-eyebrow .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--orange);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .3;
+            }
+        }
+
+        h1.hero-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(38px, 5.4vw, 66px);
+            line-height: 1.06;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeUp .9s var(--ease) .22s forwards;
+        }
+
+        h1.hero-title .accent {
+            color: var(--orange);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            margin-top: 22px;
+            font-size: 17px;
+            color: var(--muted);
+            max-width: 480px;
+            opacity: 0;
+            animation: fadeUp .9s var(--ease) .36s forwards;
+        }
+
+        .hero-actions {
+            margin-top: 38px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp .9s var(--ease) .5s forwards;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-stats {
+            margin-top: 56px;
+            display: flex;
+            gap: 40px;
+            opacity: 0;
+            animation: fadeUp .9s var(--ease) .64s forwards;
+        }
+
+        .hero-stats div b {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .hero-stats div span {
+            font-size: 12.5px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .hero-visual {
+            position: relative;
+            aspect-ratio: 1/1.05;
+            border-radius: 22px;
+            background: linear-gradient(160deg, var(--black-card), #0a0a0a 70%);
+            border: 1px solid rgba(255, 255, 255, .08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeUp 1s var(--ease) .3s forwards;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            border-radius: 9px;
+            object-fit: cover;
+        }
+
+        .hero-visual .tag {
+            position: absolute;
+            bottom: 22px;
+            left: 22px;
+            right: 22px;
+            background: rgba(12, 12, 12, .7);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .hero-visual .tag b {
+            color: var(--white);
+            display: block;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        /* ===== SERVICES ===== */
+        #services {
+            background: var(--off-white);
+        }
+
+        .head-row {
+            max-width: 640px;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--black-card);
+            border-radius: var(--radius);
+            padding: 36px 30px;
+            color: var(--white);
+            transition: transform .45s var(--ease), background .45s var(--ease), box-shadow .45s var(--ease);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            opacity: 0;
+            transition: opacity .45s var(--ease);
+            z-index: 0;
+        }
+
+        .service-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 22px 40px -18px rgba(0, 0, 0, .5);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-num {
+            font-family: var(--font-display);
+            font-size: 13px;
+            color: var(--orange);
+            font-weight: 700;
+            letter-spacing: .08em;
+            margin-bottom: 22px;
+            display: block;
+            transition: color .4s;
+        }
+
+        .service-card:hover .service-num {
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14.5px;
+            color: var(--muted);
+            transition: color .4s;
+        }
+
+        .service-card:hover p {
+            color: rgba(255, 255, 255, .88);
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr .9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        #about .eyebrow {
+            color: var(--orange-light);
+        }
+
+        #about h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.18;
+            margin-bottom: 22px;
+        }
+
+        #about p.lead {
+            font-size: 16.5px;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .about-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .about-photo {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(155deg, var(--black-card), #151515);
+            border: 1px solid rgba(255, 255, 255, .08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .about-photo img {
+            width: 100%;
+            opacity: .85;
+        }
+
+        .about-photo span {
+            font-size: 12.5px;
+            color: var(--muted);
+            letter-spacing: .04em;
+        }
+
+        .about-photo .frame-corner {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border: 2px solid var(--orange);
+        }
+
+        .about-photo .fc-tl {
+            top: 16px;
+            left: 16px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .about-photo .fc-br {
+            bottom: 16px;
+            right: 16px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .pillars {
+            margin-top: 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pillar-card {
+            background: var(--black-card);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            padding: 30px 26px;
+        }
+
+        .pillar-card .pillar-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(210, 96, 26, .14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .pillar-card .pillar-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--orange);
+        }
+
+        .pillar-card h4 {
+            font-family: var(--font-display);
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .pillar-card p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ===== PORTFOLIO ===== */
+        #portfolio {
+            background: var(--off-white);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, .06);
+            transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 44px -22px rgba(0, 0, 0, .25);
+        }
+
+        .project-thumb {
+            aspect-ratio: 4/3;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-thumb img{
+            width: 100%;
+            height: 100%;
+            transition: transform .6s var(--ease);
+        }
+
+        .project-card:hover .project-thumb img {
+            transform: scale(1.08) rotate(-3deg);
+        }
+
+        .thumb-1 {
+            background: linear-gradient(150deg, #1c1c1c, #3a2213);
+        }
+
+        .thumb-2 {
+            background: linear-gradient(150deg, #20140a, #D2601A);
+        }
+
+        .thumb-3 {
+            background: linear-gradient(150deg, #161616, #4a2c12);
+        }
+
+        .project-body {
+            padding: 24px 24px 26px;
+        }
+
+        .project-tag {
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+
+        .project-body h3 {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 600;
+            margin: 8px 0 10px;
+        }
+
+        .project-body p {
+            font-size: 14px;
+            color: var(--muted-dark);
+            margin-bottom: 18px;
+        }
+
+        .view-project {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--black);
+            border-bottom: 1.5px solid var(--orange);
+            padding-bottom: 2px;
+            transition: gap .3s, color .3s;
+        }
+
+        .view-project:hover {
+            gap: 11px;
+            color: var(--orange-dark);
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        #why-us {
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 70px;
+        }
+
+        .why-card {
+            background: var(--black);
+            border-radius: var(--radius);
+            padding: 38px 34px;
+            color: var(--white);
+        }
+
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 22px;
+        }
+
+        .why-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14.5px;
+            color: var(--white);
+            margin-bottom: 14px;
+        }
+
+        .why-card ul li svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            stroke: var(--white);
+            margin-top: 2px;
+        }
+
+        .why-card.vision p {
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, .82);
+            margin-bottom: 14px;
+        }
+
+        .industries {
+            text-align: center;
+        }
+
+        .industries .eyebrow {
+            display: block;
+            text-align: center;
+        }
+
+        .industries h3 {
+            font-family: var(--font-display);
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 34px;
+        }
+
+        .industries-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .industry-pill {
+            padding: 14px 26px;
+            border-radius: 100px;
+            background: var(--off-white);
+            border: 1px solid rgba(0, 0, 0, .08);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            transition: background .35s var(--ease), color .35s var(--ease), transform .35s var(--ease), border-color .35s;
+        }
+
+        .industry-pill:hover {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-4px);
+            border-color: var(--orange);
+        }
+
+        /* ===== MENTORSHIP ===== */
+        #mentorship {
+            background: var(--orange);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #mentorship::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(115deg, rgba(255, 255, 255, .05) 0 2px, transparent 2px 60px);
+            pointer-events: none;
+        }
+
+        #mentorship .head {
+            max-width: 640px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #mentorship .eyebrow {
+            color: rgba(255, 255, 255, .85);
+        }
+
+        #mentorship h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 18px;
+        }
+
+        #mentorship .head p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, .9);
+        }
+
+        .mentorship-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 26px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mentor-card {
+            background: var(--white);
+            color: var(--black);
+            border-radius: 18px;
+            padding: 36px 32px;
+            text-align: left;
+            transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 46px -20px rgba(0, 0, 0, .35);
+        }
+
+        .mentor-price {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--orange);
+            margin-bottom: 6px;
+        }
+
+        .mentor-card h3 {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .mentor-card p {
+            font-size: 14px;
+            color: var(--muted-dark);
+            margin-bottom: 12px;
+        }
+
+        .mentor-card .btn {
+            margin-top: 14px;
+        }
+
+        /* ===== FAQ ===== */
+        #faq {
+            background: var(--off-white);
+        }
+
+        .faq-layout {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 60px;
+        }
+
+        #faq .head p {
+            color: var(--muted-dark);
+            font-size: 15.5px;
+            margin-top: 12px;
+            max-width: 340px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: var(--black);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: background .3s;
+        }
+
+        .faq-q {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 26px;
+            background: none;
+            color: var(--white);
+            font-size: 15.5px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .faq-q .plus {
+            font-size: 20px;
+            color: var(--orange);
+            transition: transform .4s var(--ease);
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.open .plus {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .45s var(--ease), padding .45s var(--ease);
+            padding: 0 26px;
+        }
+
+        .faq-a p {
+            font-size: 14.5px;
+            color: var(--muted);
+            padding-bottom: 0;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding: 0 26px 22px;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        #testimonials .head {
+            max-width: 560px;
+            margin-bottom: 56px;
+        }
+
+        #testimonials .eyebrow {
+            color: var(--orange-light);
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testi-card {
+            background: var(--black-card);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            transition: transform .4s var(--ease);
+        }
+
+        .testi-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .testi-quote {
+            font-size: 32px;
+            color: var(--orange);
+            font-family: var(--font-display);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .testi-card p {
+            font-size: 14.5px;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .testi-name {
+            font-weight: 600;
+            font-size: 14.5px;
+            color: var(--white);
+        }
+
+        .testi-role {
+            font-size: 12.5px;
+            color: var(--muted);
+        }
+
+        /* ===== CONTACT CTA ===== */
+        #contact-cta {
+            background: var(--black-card);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(210, 96, 26, .16), transparent 65%);
+            transform: translate(-50%, -50%);
+        }
+
+        #contact-cta .inner {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        #contact-cta .eyebrow {
+            color: var(--orange-light);
+        }
+
+        #contact-cta h2 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(28px, 4.4vw, 46px);
+            margin-bottom: 18px;
+            line-height: 1.15;
+        }
+
+        #contact-cta p {
+            font-size: 16px;
+            color: var(--muted);
+            margin-bottom: 36px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 70px 8vw 26px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--muted);
+            margin: 16px 0 20px;
+            max-width: 280px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--white);
+        }
+
+        .footer-col h5 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: var(--white);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: var(--muted);
+            transition: color .3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 26px;
+            font-size: 13px;
+            color: var(--muted-dark);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom a {
+            color: var(--muted-dark);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--orange);
+        }
+
+        @media (max-width:900px) {
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background: var(--black);
+                flex-direction: column;
+                padding: 20px 8vw 30px;
+                gap: 20px;
+                transform: translateY(-130%);
+                opacity: 0;
+                transition: transform .4s var(--ease), opacity .4s;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-burger {
+                display: flex;
+            }
+
+            .nav-cta-wrap .btn-primary {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+
+            .logo-wrap {
+                width: 52px;
+                height: 52px;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .faq-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                margin-top: 50px;
+            }
+
+            .services-grid,
+            .pillars,
+            .portfolio-grid,
+            .testi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid,
+            .mentorship-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section {
+                padding: 80px 6vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+        <a href="#home" class="logo-wrap" title="Enoch.Dev">
+            <img src="logo 2.jpeg" alt="">
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">My Projects</a></li>
+            <li><a href="index.html#mentorship">Mentorship</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-cta-wrap">
+            <a href="#contact-cta" class="btn btn-primary">Let's Talk</a>
+            <button class="nav-burger" id="burger" aria-label="Menu"
+                aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ===== HOME / HERO ===== -->
+    <section id="home">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-eyebrow"><span class="dot"></span> Website Developer & Designer, Nigeria</div>
+                <h1 class="hero-title">Building websites that make brands <span class="accent">unforgettable.</span>
+                </h1>
+                <p class="hero-sub">I'm Enoch — I design and develop clean, fast, conversion-ready websites for founders
+                    and businesses who want to look as good online as they are in real life.</p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact-cta" class="btn btn-outline">Get In Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div><b>40+</b><span>Projects Shipped</span></div>
+                    <div><b>5+</b><span>Years Experience</span></div>
+                    <div><b>98%</b><span>Client Satisfaction</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="logo2">
+                    <img src="logo3.jpeg" alt="">
+                </div>
+            </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="head-row reveal">
+                <span class="eyebrow">What I Offer</span>
+                <h2 class="section-title">Services built for growth.</h2>
+            </div>
+            <div class="services-grid reveal-stagger">
+                <div class="service-card">
+                    <span class="service-num">01</span>
+                    <h3>Website Development</h3>
+                    <p>Fast, responsive, and scalable websites built from scratch — coded clean and optimized to convert
+                        visitors into customers.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">02</span>
+                    <h3>UI/UX Design</h3>
+                    <p>Thoughtful interfaces and user flows that feel intuitive, look sharp, and keep people engaged
+                        from the first click.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">03</span>
+                    <h3>Graphics Design</h3>
+                    <p>Logos, brand assets, and visual identity work that gives your business a look people remember and
+                        trust.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">04</span>
+                    <h3>Website Development Mentorship</h3>
+                    <p>One-on-one guided training to take you from beginner to confident developer, with real projects
+                        and real feedback.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">05</span>
+                    <h3>Brand Identity</h3>
+                    <p>Cohesive brand systems — color, type, and voice — so every touchpoint of your business feels
+                        unmistakably yours.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-num">06</span>
+                    <h3>SEO & Optimization</h3>
+                    <p>Technical and on-page SEO to help your website get found, load faster, and rank higher where it
+                        matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="reveal-left">
+                    <span class="eyebrow">Meet Enoch.Dev</span>
+                    <h2>I design and build digital experiences that help brands scale.</h2>
+                    <p class="lead">I'm a website developer and designer based in Nigeria, working with founders,
+                        startups, and creatives who want more than just a website — they want a digital presence that
+                        actually works for their business.</p>
+                    <p class="lead">My focus is simple: clean design, solid code, and websites that load fast, look
+                        sharp on every device, and turn visitors into clients. Every project I take on is guided by one
+                        goal — to raise the standard of digital design and development across Africa.</p>
+                    <div class="about-actions">
+                        <a href="#contact-cta" class="btn btn-primary">Contact Me</a>
+                        <a href="#portfolio" class="btn btn-outline">About Me</a>
+                    </div>
+                </div>
+                <div class="about-photo reveal-right">
+                    <div class="frame-corner fc-tl"></div>
+                    <div class="frame-corner fc-br"></div>
+                    <img src="enoch.jpg" alt="Enoch Dev" />
+                    <circle cx="50" cy="36" r="18" stroke="#D2601A" stroke-width="3" />
+                    <path d="M20 88C20 68 33 58 50 58C67 58 80 68 80 88" stroke="#D2601A" stroke-width="3"
+                        stroke-linecap="round" />
+                </div>
+            </div>
+
+            <div class="pillars reveal-stagger">
+                <div class="pillar-card">
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 17l6-6-6-6M12 19h8" />
+                        </svg></div>
+                    <h4>What I Build</h4>
+                    <p>Clean, functional websites that help brands scale effortlessly online.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 8v4l3 2" />
+                        </svg></div>
+                    <h4>My Approach</h4>
+                    <p>Strategy meets design. Every project is guided by purpose and creativity.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg></div>
+                    <h4>Vision</h4>
+                    <p>To raise the standard of digital design and web development in Africa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <div class="head-row reveal">
+                <span class="eyebrow">Selected Work</span>
+                <h2 class="section-title">A few projects I'm proud of.</h2>
+            </div>
+            <div class="portfolio-grid reveal-stagger">
+                <div class="project-card">
+                    <div class="project-thumb thumb-1">
+                        <img src="images/vtk.png" alt="">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Animal Nutrition</span>
+                        <h3>VTK Supplements</h3>
+                        <p>A modern animal supplement website designed to promote pet health, showcase premium products,
+                            and drive
+                            customer trust.</p>
+                        <a href="https://vtk.com.ng" class="view-project">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-thumb thumb-2">
+                        <img src="./workImg/cars-web.png" alt="">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Automotive</span>
+                        <h3>Autobile</h3>
+                        <p>A world-class luxury automotive platform engineered with modern web technologies to deliver
+                            cinematic vehicle showcases,
+                            smooth animations, responsive design, and an exceptional user experience for exploring
+                            premium automobiles.
+                        </p>
+                        <a href="https://autobile.vercel.app/" class="view-project">View Project →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-thumb thumb-3">
+                        <img src="./workImg/Fashion-Hub (2).png" alt="">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-tag">Luxury Fashion</span>
+                        <h3>Fashion Hub &amp; Co.</h3>
+                        <p>A premium fashion e-commerce platform designed to showcase luxury clothing, elegant wigs,
+                            handcrafted
+                            beads, and stylish accessories through a modern, responsive, and visually captivating
+                            shopping
+                            experience.</p>
+                        <a href="#" class="view-project">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section id="why-us" class="section">
+        <div class="container">
+            <div class="head-row reveal">
+                <span class="eyebrow">Why Enoch.Dev</span>
+                <h2 class="section-title">Why choose us.</h2>
+            </div>
+            <div class="why-grid reveal-stagger">
+                <div class="why-card">
+                    <h3>What You Get</h3>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Custom website tailored to your goals</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Fast-loading & SEO-optimized designs</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Cross-device responsiveness</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Secure & scalable websites</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Ongoing support and maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="why-card vision">
+                    <h3>Our Vision</h3>
+                    <p>To empower Nigerian brands with world-class digital solutions.</p>
+                    <p>To craft digital experiences that drive growth and results.</p>
+                    <p>To raise the standard of design and development in Africa.</p>
+                </div>
+            </div>
+
+            <div class="industries reveal">
+                <span class="eyebrow">Who I Work With</span>
+                <h3>Industries We Work With</h3>
+                <div class="industries-list">
+                    <span class="industry-pill">Real Estate & Property Brands</span>
+                    <span class="industry-pill">Fashion & Lifestyle Startups</span>
+                    <span class="industry-pill">Tech & SaaS Companies</span>
+                    <span class="industry-pill">NGOs & Educational Platforms</span>
+                    <span class="industry-pill">Personal Brands & Creatives</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MENTORSHIP ===== -->
+    <section id="mentorship" class="section">
+        <div class="container">
+            <div class="head reveal">
+                <span class="eyebrow">Mentorship Programs</span>
+                <h2>Start a new tech career today</h2>
+                <p>Join one of my mentorship programs and gain hands-on experience to kickstart your journey in tech.
+                    Whether you're learning web development or design, I'll guide you every step of the way.</p>
+            </div>
+            <div class="mentorship-grid reveal-stagger">
+                <div class="mentor-card">
+                    <div class="mentor-price">₦100,000</div>
+                    <h3>Website Mentorship</h3>
+                    <p>Join my website mentorship program and gain access to detailed learning materials, practical
+                        tutorials, and real-world insights to help you master website design and development.</p>
+                    <p>You'll get full mentorship support — I'll guide you whenever you're stuck or need clarification,
+                        ensuring you understand each concept clearly.</p>
+                    <a href="https://wa.me/2340000000000" class="btn btn-black">Enroll Now on WhatsApp</a>
+                </div>
+                <div class="mentor-card">
+                    <div class="mentor-price">₦40,000</div>
+                    <h3>UI/UX Design Mentorship</h3>
+                    <p>Learn the principles of design, branding, and visual communication through my UI/UX design
+                        mentorship program.</p>
+                    <p>You'll get access to comprehensive video lessons, design resources, and hands-on projects — all
+                        with mentorship support whenever you face challenges.</p>
+                    <a href="https://wa.me/2340000000000" class="btn btn-black">Enroll Now on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="faq-layout">
+                <div class="head reveal-left">
+                    <span class="eyebrow">Got Questions?</span>
+                    <h2 class="section-title">Frequently asked questions</h2>
+                    <p>Can't find what you're looking for? Reach out and I'll get back to you directly.</p>
+                </div>
+                <div class="faq-list reveal-right">
+                    <div class="faq-item">
+                        <button class="faq-q">What services do you offer? <span class="plus">+</span></button>
+                        <div class="faq-a">
+                            <p>I offer website development, UI/UX design, graphics design, and mentorship programs for
+                                people looking to break into tech.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">How long does it take to complete a project? <span
+                                class="plus">+</span></button>
+                        <div class="faq-a">
+                            <p>Most websites take between 1 to 3 weeks depending on scope and complexity, with clear
+                                timelines agreed before we start.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Do you provide website maintenance? <span class="plus">+</span></button>
+                        <div class="faq-a">
+                            <p>Yes, I offer ongoing support and maintenance packages to keep your website secure,
+                                updated, and running smoothly.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Can you redesign my existing website? <span class="plus">+</span></button>
+                        <div class="faq-a">
+                            <p>Absolutely. I regularly transform outdated websites into fast, responsive, and modern
+                                experiences.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q">Do you offer SEO services? <span class="plus">+</span></button>
+                        <div class="faq-a">
+                            <p>Yes, every website I build is optimized for search from the ground up, and I offer deeper
+                                SEO support on request.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="head reveal">
+                <span class="eyebrow">Feedback From My Clients</span>
+                <h2 class="section-title">What our clients say about working with us.</h2>
+            </div>
+            <div class="testi-grid reveal-stagger">
+                <div class="testi-card">
+                    <div class="testi-quote">"</div>
+                    <p>I hired Enoch.Dev to design and develop my company's website, and I couldn't be more pleased with
+                        the results. The design was sleek and modern, and the website functions flawlessly. The process
+                        was smooth and communication was always clear.</p>
+                    <div class="testi-name"> vtk Iorin</div>
+                    <div class="testi-role"> Animal Nutrition</div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-quote">"</div>
+                    <p>Working with Enoch.Dev was an amazing experience! They understood exactly what I wanted for my
+                        personal brand's website and delivered beyond my expectations. Their attention to detail was
+                        impressive.</p>
+                    <div class="testi-name"> Mr David</div>
+                    <div class="testi-role"> Car websie</div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-quote">"</div>
+                    <p>Enoch.Dev is incredibly professional and proactive. They transformed my outdated website into
+                        something fresh, responsive, and user-friendly. I'm thrilled with the end result and would
+                        recommend their expertise.</p>
+                    <div class="testi-name"> Enoch.Dev</div>
+                    <div class="testi-role"> For portfolio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT CTA ===== -->
+    <section id="contact-cta" class="section">
+        <div class="inner reveal">
+            <span class="eyebrow">Let's Work Together</span>
+            <h2>Need a website developer in Nigeria?</h2>
+            <p>Stay in touch — have a project in mind or need an expert website designer and developer? Get in touch
+                with me today and let's start a conversation.</p>
+            <a href="mailto:hello@enoch.dev" class="btn btn-primary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#home" class="logo"><span class="logo-mark">E</span>Enoch<span class="accent">.Dev</span></a>
+                <p>Website developer & designer helping brands across Africa build a digital presence that gets results.
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" />
+                        </svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="3" />
+                            <line x1="8" y1="11" x2="8" y2="16" />
+                            <line x1="8" y1="8" x2="8" y2="8" />
+                            <line x1="12" y1="11" x2="12" y2="16" />
+                            <path d="M12 13c0-2 4-2 4 0v3" />
+                        </svg></a>
+                    <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M3 21l1.5-4.5A8 8 0 1 1 8.5 19.5L3 21z" />
+                        </svg></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Navigate</h5>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Programs</h5>
+                <ul>
+                    <li><a href="#mentorship">Website Mentorship</a></li>
+                    <li><a href="#mentorship">Graphic Design Mentorship</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Get In Touch</h5>
+                <ul>
+                    <li><a href="mailto:hello@enoch.dev">hello@enoch.dev</a></li>
+                    <li><a href="https://wa.me/2340000000000">WhatsApp</a></li>
+                    <li><a href="#">Lagos, Nigeria</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Copyright © 2026 Enoch.Dev. All rights reserved.</span>
+            <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+        </div>
+    </footer>
+
+    <script>
+        // Nav scroll shrink
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+        // Mobile menu
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        burger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            burger.classList.toggle('open');
+            burger.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            burger.classList.remove('open');
+            burger.setAttribute('aria-expanded', false);
+        }));
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .reveal-left, .reveal-right');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => io.observe(el));
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-q').addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+
+</html>

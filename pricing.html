@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="logo 2.jpeg">
+    <title>Enoch.Dev — Website Developer & Designer in Nigeria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --black: #0c0c0c;
+            --black-card: #181818;
+            --black-soft: #232323;
+            --white: #ffffff;
+            --off-white: #f6f4f0;
+            --orange: #D2601A;
+            --orange-dark: #A34C14;
+            --orange-light: #F0A868;
+            --muted: #9a9a9a;
+            --muted-dark: #5c5c5c;
+            --font-display: 'Sora', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --radius: 14px;
+            --ease: cubic-bezier(.16, .84, .44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--off-white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(28px, 4.2vw, 44px);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+
+        .section {
+            padding: 100px 8vw;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity .8s var(--ease), transform .8s var(--ease);
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger>* {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+
+        .reveal-stagger.in-view>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger.in-view>*:nth-child(1) {
+            transition-delay: .02s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(2) {
+            transition-delay: .08s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(3) {
+            transition-delay: .14s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(4) {
+            transition-delay: .2s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(5) {
+            transition-delay: .26s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(6) {
+            transition-delay: .32s;
+        }
+
+        .reveal-stagger.in-view>*:nth-child(7) {
+            transition-delay: .38s;
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(.94);
+            transition: opacity .8s var(--ease), transform .8s var(--ease);
+        }
+
+        .reveal-scale.in-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14.5px;
+            transition: transform .35s var(--ease), box-shadow .35s var(--ease), background .3s, color .3s;
+            white-space: nowrap;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, .35), transparent);
+            transform: skewX(-20deg);
+            transition: left .6s var(--ease);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .btn:hover::before {
+            left: 130%;
+        }
+
+        .btn>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px -8px rgba(210, 96, 26, .55);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid currentColor;
+            color: inherit;
+        }
+
+        .btn-outline:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--black);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-white:hover {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* ===== NAV (shared) ===== */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--black);
+            padding: 16px 6vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: padding .35s var(--ease), box-shadow .35s var(--ease);
+        }
+
+        #navbar.scrolled {
+            padding: 10px 6vw;
+            box-shadow: 0 8px 30px -12px rgba(0, 0, 0, .6);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--white);
+        }
+
+        .logo-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            background: linear-gradient(145deg, var(--orange), var(--orange-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--white);
+            flex-shrink: 0;
+            transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+        }
+
+        .logo:hover .logo-mark {
+            transform: rotate(-8deg) scale(1.08);
+            box-shadow: 0 8px 20px -6px rgba(210, 96, 26, .6);
+        }
+
+        .logo .accent {
+            color: var(--orange);
+        }
+
+        /* Glowing logo wrapper */
+        .logo-wrap {
+            width: 78px;
+            height: 78px;
+            border-radius: 9px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: box-shadow .35s var(--ease), transform .35s var(--ease);
+        }
+
+        .logo-wrap img {
+            width: 100%;
+            height: 100%;
+            border-radius: 9px;
+            object-fit: cover;
+        }
+
+        .logo-wrap:hover {
+            box-shadow:
+                0 0 4px var(--orange),
+                0 0 10px var(--orange-light);
+            transform: scale(1.03);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-size: 14.5px;
+            font-weight: 500;
+            position: relative;
+            padding: 4px 0;
+            transition: color .3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1.5px;
+            background: var(--orange);
+            transition: width .35s var(--ease);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--orange);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta-wrap {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .nav-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            padding: 6px;
+        }
+
+        .nav-burger span {
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        .nav-burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-burger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ===== PRICING HERO ===== */
+        #pricing-hero {
+            background: var(--black);
+            color: var(--white);
+            padding: 170px 8vw 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pricing-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(210, 96, 26, .24), transparent 70%);
+            border-radius: 50%;
+            animation: float1 9s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-52%, 30px);
+            }
+        }
+
+        .ph-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .06em;
+            color: var(--orange-light);
+            margin-bottom: 26px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ph-eyebrow .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--orange);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .3;
+            }
+        }
+
+        #pricing-hero h1 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(32px, 5vw, 54px);
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            max-width: 760px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        #pricing-hero h1 .accent {
+            font-style: italic;
+            background: linear-gradient(90deg, var(--orange), var(--orange-light), var(--orange));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        .ph-sub {
+            margin-top: 20px;
+            font-size: 16px;
+            color: var(--muted);
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== CURRENCY TOGGLE ===== */
+        .currency-toggle-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 38px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .currency-toggle {
+            display: inline-flex;
+            gap: 4px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .14);
+            padding: 6px;
+            border-radius: 100px;
+            backdrop-filter: blur(6px);
+        }
+
+        .curr-btn {
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--muted);
+            background: transparent;
+            transition: background .35s var(--ease), color .35s var(--ease), transform .3s;
+        }
+
+        .curr-btn.active {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        .curr-btn:not(.active):hover {
+            color: var(--white);
+        }
+
+        /* ===== PRICING GRID ===== */
+        #pricing-grid {
+            background: var(--off-white);
+        }
+
+        .pg-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .price-card {
+            background: var(--black-card);
+            border-radius: 20px;
+            padding: 38px 32px;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, .06);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 26px 46px -20px rgba(0, 0, 0, .5);
+        }
+
+        .price-card.popular {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 1px var(--orange);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: 22px;
+            right: -34px;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: 6px 40px;
+            transform: rotate(40deg);
+        }
+
+        .price-tier {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .price-tagline {
+            font-size: 13.5px;
+            color: var(--muted);
+            margin-bottom: 24px;
+            min-height: 40px;
+        }
+
+        .price-amount {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 34px;
+            color: var(--orange);
+            margin-bottom: 26px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .price-amount .suffix {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+        }
+
+        .price-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .price-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        .price-features li svg {
+            width: 15px;
+            height: 15px;
+            stroke: var(--orange);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ===== CUSTOM BUDGET CARD ===== */
+        .budget-price-card .price-tagline {
+            min-height: 0;
+            margin-bottom: 22px;
+        }
+
+        .budget-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex-grow: 1;
+        }
+
+        .budget-field label {
+            display: block;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .budget-input-wrap {
+            position: relative;
+        }
+
+        .budget-input-wrap .currency {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--muted);
+            pointer-events: none;
+            transition: color .3s;
+        }
+
+        .budget-field input[type="number"] {
+            width: 100%;
+            background: var(--black-soft);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 10px;
+            padding: 13px 14px 13px 32px;
+            font-family: inherit;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--white);
+            transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+            -moz-appearance: textfield;
+        }
+
+        .budget-field input[type="number"]::-webkit-outer-spin-button,
+        .budget-field input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .budget-field input::placeholder,
+        .budget-field textarea::placeholder {
+            color: var(--muted-dark);
+        }
+
+        .budget-field input:focus,
+        .budget-field textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(210, 96, 26, .18);
+        }
+
+        .budget-field input:focus~.currency {
+            color: var(--orange-light);
+        }
+
+        .budget-field textarea {
+            width: 100%;
+            resize: none;
+            min-height: 78px;
+            background: var(--black-soft);
+            border: 1.5px solid rgba(255, 255, 255, .1);
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-family: inherit;
+            font-size: 13.5px;
+            color: var(--white);
+            line-height: 1.55;
+            transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+        }
+
+        .budget-hint {
+            font-size: 11.5px;
+            color: var(--muted-dark);
+            margin-top: 7px;
+            transition: color .25s;
+        }
+
+        .budget-field.error input {
+            border-color: #d24b4b;
+        }
+
+        .budget-field.error .budget-hint {
+            color: #e37878;
+        }
+
+        .budget-form .btn-white {
+            margin-top: 4px;
+        }
+
+        .budget-success {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 10px 0 4px;
+            flex-grow: 1;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .5s var(--ease), transform .5s var(--ease);
+        }
+
+        .budget-success.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .budget-success-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(210, 96, 26, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .budget-success-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--orange-light);
+        }
+
+        .budget-success h4 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .budget-success p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .budget-form.hide {
+            display: none;
+        }
+
+        @media (max-width:900px) {
+            .nav-links {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background: var(--black);
+                flex-direction: column;
+                padding: 20px 8vw 30px;
+                gap: 20px;
+                transform: translateY(-130%);
+                opacity: 0;
+                transition: transform .4s var(--ease), opacity .4s;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-burger {
+                display: flex;
+            }
+
+            .nav-cta-wrap .btn-primary {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+
+            .logo-wrap {
+                width: 52px;
+                height: 52px;
+            }
+
+            .pg-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .currency-toggle {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 80px 6vw;
+            }
+
+            .reveal,
+            .reveal-stagger>*,
+            .reveal-scale {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* ===== FOOTER (shared) ===== */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 70px 8vw 26px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--muted);
+            margin: 16px 0 20px;
+            max-width: 280px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            transform: translateY(-3px);
+        }
+
+        .footer-social svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--white);
+        }
+
+        .footer-col h5 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: var(--white);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: var(--muted);
+            transition: color .3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 26px;
+            font-size: 13px;
+            color: var(--muted-dark);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom a {
+            color: var(--muted-dark);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--orange);
+        }
+
+        @media (max-width:900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width:560px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+        <a href="index.html#home" class="logo-wrap" title="Enoch.Dev">
+            <img src="logo 2.jpeg" alt="">
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="about.html">About</a></li>
+              <li><a href="work.html">My Projects</a></li>
+            <li><a href="index.html#mentorship">Mentorship</a></li>
+            <li><a href="#contact-faq">FAQ</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-cta-wrap">
+            <a href="contact.html" class="btn btn-primary">Let's Talk</a>
+            <button class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ===== PRICING HERO ===== -->
+    <section id="pricing-hero">
+        <div class="ph-eyebrow"><span class="dot"></span> Pricing</div>
+        <h1>Clear packages for wherever your <span class="accent">business is headed.</span></h1>
+        <p class="ph-sub">From a first website to a full ecommerce platform, here's exactly what's included at every
+            stage — no hidden costs, no guesswork.</p>
+
+        <div class="currency-toggle-wrap">
+            <div class="currency-toggle" id="currencyToggle">
+                <button class="curr-btn active" data-currency="NGN">₦ NGN</button>
+                <button class="curr-btn" data-currency="USD">$ USD</button>
+                <button class="curr-btn" data-currency="GHS">₵ GHS</button>
+                <button class="curr-btn" data-currency="GBP">£ GBP</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING GRID ===== -->
+    <section id="pricing-grid" class="section">
+        <div class="container">
+            <div class="pg-grid reveal-stagger">
+
+                <!-- Personal Brand Starter -->
+                <div class="price-card">
+                    <div class="price-tier">Personal Brand Starter</div>
+                    <div class="price-tagline">Ideal for creatives, freelancers, and solo professionals who need a clean
+                        single presence online.</div>
+                    <div class="price-amount"><span class="price-value" data-ngn="180000">₦180,000</span></div>
+                    <ul class="price-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>1–3 page website</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Fully responsive design</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Clean, simple brand styling</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Contact form built in</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Social media links</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Basic on-page SEO</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Free SSL certificate</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>5 days free post-launch support</li>
+                    </ul>
+                    <a href="https://wa.me/2348122569014" class="btn btn-white">Get Started</a>
+                </div>
+
+                <!-- Corporate Business Website -->
+                <div class="price-card">
+                    <div class="price-tier">Corporate Business Website</div>
+                    <div class="price-tagline">Best suited to companies, professionals, and service-based businesses.
+                    </div>
+                    <div class="price-amount"><span class="price-value" data-ngn="420000">₦420,000</span></div>
+                    <ul class="price-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Up to 5 pages of content</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Fully responsive, mobile-first build</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Styling built around your brand</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Contact & inquiry forms</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Optional blog setup</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Google Maps & social integration</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Foundational SEO setup</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Free SSL & speed optimization</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>7 days free post-launch support</li>
+                    </ul>
+                    <a href="https://wa.link/n7wa4p" class="btn btn-white">Get Started</a>
+                </div>
+
+                <!-- Ecommerce Starter -->
+                <div class="price-card">
+                    <div class="price-tier">Ecommerce Starter</div>
+                    <div class="price-tagline">Best for new online stores and small businesses just starting to sell
+                        online.</div>
+                    <div class="price-amount"><span class="price-value" data-ngn="550000">₦550,000</span></div>
+                    <ul class="price-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Complete online store build</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>WooCommerce set up & configured</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>No limit on product listings</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Secure shopping cart & checkout</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Payment gateway integration</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Order & customer management</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Light store design customization</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Inventory tracking included</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Basic store walkthrough & training</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>14 days free post-launch support</li>
+                    </ul>
+                    <a href="https://wa.link/keuetx" class="btn btn-white">Get Started</a>
+                </div>
+
+                <!-- Ecommerce Growth (Popular) -->
+                <div class="price-card popular">
+                    <span class="badge-popular">Most Popular</span>
+                    <div class="price-tier">Ecommerce Growth</div>
+                    <div class="price-tagline">Ideal for growing businesses ready to scale their store.</div>
+                    <div class="price-amount"><span class="price-value" data-ngn="850000">₦850,000</span></div>
+                    <ul class="price-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Everything in Ecommerce Starter</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>More advanced UI/UX design</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Product variations & smart filters</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Advanced shipping & tax setup</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Coupons, discounts & promotions</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Wishlist & customer reviews</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Automated email notifications</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Google Analytics wired in</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Blog structured for marketing</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>3 weeks free post-launch support</li>
+                    </ul>
+                    <a href="https://wa.link/qnco6o" class="btn btn-white">Contact Us</a>
+                </div>
+
+                <!-- Premium Ecommerce (Custom) -->
+                <div class="price-card">
+                    <div class="price-tier">Premium Ecommerce</div>
+                    <div class="price-tagline">For established brands, startups, and large-scale ecommerce platforms.
+                    </div>
+                    <div class="price-amount custom-price">Custom Pricing</div>
+                    <ul class="price-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Everything in Ecommerce Growth</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Fully bespoke ecommerce build</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Deep performance optimization</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Multi-currency, global-ready selling</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Advanced analytics & reporting</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Optional multi-vendor setup</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Live chat & CRM integration</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Enterprise-level SEO structure</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Priority support access</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>1 month free post-launch support</li>
+                    </ul>
+                    <a href="https://wa.link/xcimn6" class="btn btn-white">Contact Us</a>
+                </div>
+
+                <!-- Website Care Plan -->
+                <div class="price-card">
+                    <div class="price-tier">Website Care Plan</div>
+                    <div class="price-tagline">Keep your site fast, secure, and up to date long after launch.</div>
+                    <div class="price-amount"><span class="price-value" data-ngn="25000">₦25,000</span><span
+                            class="suffix">/ month</span></div>
+                    <ul class="price-features">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Monthly content & plugin updates</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Uptime & security monitoring</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Regular site backups</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Minor content edits (text/images)</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Broken link & bug checks</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Priority WhatsApp support</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>Monthly performance report</li>
+                    </ul>
+                    <a href="https://wa.me/2348122569014" class="btn btn-white">Get Started</a>
+                </div>
+
+                <!-- Custom Budget / Brief -->
+                <div class="price-card budget-price-card">
+                    <div class="price-tier">Not Sure What You Need?</div>
+                    <div class="price-tagline">Tell me your budget and what you're trying to build — I'll follow up
+                        with next steps.</div>
+
+                    <form class="budget-form" id="budgetForm" novalidate>
+                        <div class="budget-field" id="budgetField">
+                            <label for="budgetInput">Preferred Budget (₦)</label>
+                            <div class="budget-input-wrap">
+                                <span class="currency">₦</span>
+                                <input type="number" id="budgetInput" name="budget" placeholder="100,000 minimum"
+                                    min="100000" step="1000" inputmode="numeric" required>
+                            </div>
+                            <div class="budget-hint" id="budgetHint">Minimum project budget is ₦100,000.</div>
+                        </div>
+
+                        <div class="budget-field">
+                            <label for="budgetDetails">What do you want built?</label>
+                            <textarea id="budgetDetails" name="details"
+                                placeholder="e.g. A booking website for my hotel with an admin dashboard"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-white">Submit Brief</button>
+                    </form>
+
+                    <div class="budget-success" id="budgetSuccess">
+                        <div class="budget-success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Brief received.</h4>
+                            <p>Thanks — I'll review your budget and details, then reach out to talk next steps.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="reveal" style="text-align:center;margin-top:40px;font-size:12.5px;color:var(--muted-dark);">
+                Prices shown in USD, GHS, and GBP are approximate conversions from Naira for reference and update with
+                exchange rates — final invoices are issued in Naira unless agreed otherwise.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html#home" class="logo"><span class="logo-mark">E</span>Enoch<span
+                        class="accent">.Dev</span></a>
+                <p>Website developer & designer helping brands across Africa build a digital presence that gets results.
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="17.5" cy="6.5" r="1" />
+                        </svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="3" />
+                            <line x1="8" y1="11" x2="8" y2="16" />
+                            <line x1="8" y1="8" x2="8" y2="8" />
+                            <line x1="12" y1="11" x2="12" y2="16" />
+                            <path d="M12 13c0-2 4-2 4 0v3" />
+                        </svg></a>
+                    <a href="https://wa.me/2348122569014" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none"
+                            stroke-width="2">
+                            <path d="M3 21l1.5-4.5A8 8 0 1 1 8.5 19.5L3 21z" />
+                        </svg></a>
+                    <a href="https://www.tiktok.com/@enocholuwaseun136" aria-label="TikTok"><svg viewBox="0 0 24 24"
+                            fill="none" stroke-width="2">
+                            <path d="M14 4v10.5a3.5 3.5 0 1 1-3-3.46" />
+                            <path d="M14 4c0 2.5 2 4.5 4.5 4.5" />
+                        </svg></a>
+                    <a href="https://twitter.com/EnochOluwa80305" aria-label="Twitter"><svg viewBox="0 0 24 24"
+                            fill="none" stroke-width="2">
+                            <path d="M4 4l16 16M20 4L4 20" />
+                        </svg></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Navigate</h5>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Programs</h5>
+                <ul>
+                    <li><a href="index.html#mentorship">Website Mentorship</a></li>
+                    <li><a href="index.html#mentorship">Graphic Design Mentorship</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Get In Touch</h5>
+                <ul>
+                    <li><a href="mailto:enochamurawaiye01@gmail.com">enochamurawaiye01@gmail.com</a></li>
+                    <li><a href="https://wa.me/2348122569014">WhatsApp</a></li>
+                    <li><a href="#">Lagos, Nigeria</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Copyright © 2026 Enoch.Dev. All rights reserved.</span>
+            <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+        </div>
+    </footer>
+
+    <script>
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 30));
+
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        burger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            burger.classList.toggle('open');
+            burger.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            burger.classList.remove('open');
+            burger.setAttribute('aria-expanded', false);
+        }));
+
+        const revealEls = document.querySelectorAll('.reveal, .reveal-stagger, .reveal-scale');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => io.observe(el));
+
+        // Currency conversion (approximate mid-market rates, NGN as base)
+        const RATES = {
+            NGN: { rate: 1, symbol: '₦', name: 'NGN' },
+            USD: { rate: 1 / 1380, symbol: '$', name: 'USD' },
+            GBP: { rate: 1 / 1830, symbol: '£', name: 'GBP' },
+            GHS: { rate: 1 / 120, symbol: '₵', name: 'GHS' }
+        };
+
+        const currBtns = document.querySelectorAll('.curr-btn');
+        const priceEls = document.querySelectorAll('.price-value');
+
+        function formatAmount(ngn, code) {
+            const { rate, symbol } = RATES[code];
+            let val = ngn * rate;
+            let display;
+            if (code === 'NGN' || code === 'GHS') {
+                display = Math.round(val).toLocaleString();
+            } else {
+                display = val.toLocaleString(undefined, { maximumFractionDigits: 0 });
+            }
+            return `${symbol}${display}`;
+        }
+
+        function setCurrency(code) {
+            priceEls.forEach(el => {
+                const ngn = parseFloat(el.dataset.ngn);
+                el.textContent = formatAmount(ngn, code);
+            });
+            currBtns.forEach(b => b.classList.toggle('active', b.dataset.currency === code));
+        }
+
+        currBtns.forEach(btn => {
+            btn.addEventListener('click', () => setCurrency(btn.dataset.currency));
+        });
+
+        // Budget / brief form
+        const budgetForm = document.getElementById('budgetForm');
+        if (budgetForm) {
+            const budgetInput = document.getElementById('budgetInput');
+            const budgetField = document.getElementById('budgetField');
+            const budgetHint = document.getElementById('budgetHint');
+            const budgetSuccess = document.getElementById('budgetSuccess');
+            const MIN_BUDGET = 100000;
+
+            budgetInput.addEventListener('input', () => {
+                if (budgetField.classList.contains('error')) {
+                    budgetField.classList.remove('error');
+                    budgetHint.textContent = 'Minimum project budget is ₦100,000.';
+                }
+            });
+
+            budgetForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const value = Number(budgetInput.value);
+
+                if (!budgetInput.value || value < MIN_BUDGET) {
+                    budgetField.classList.add('error');
+                    budgetHint.textContent = 'Please enter at least ₦100,000.';
+                    budgetInput.focus();
+                    return;
+                }
+
+                budgetForm.classList.add('hide');
+                budgetSuccess.classList.add('show');
+            });
+        }
+    </script>
+</body>
+
+</html>
