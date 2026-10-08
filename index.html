@@ -4,13 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/jpeg" href="logo 2.jpeg">
-
-    <title>Enoch.Dev — Website Developer & Designer in Nigeria</title>
+    <link rel="icon" type="image/jpeg" href="/logo%202.jpeg">
+    <link rel="apple-touch-icon" href="/logo%202.jpeg">
+    <meta name="theme-color" content="#0c0c0c">
+    <meta name="application-name" content="Enoch.Dev">
+    <meta name="description"
+        content="Enoch.Dev is Amurawaiye Enoch, a full-stack developer in Ilorin, Kwara State, Nigeria, building responsive websites and web apps for local and remote clients.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://enochdev.com.ng/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Enoch.Dev">
+    <meta property="og:title" content="Enoch.Dev | Full-Stack Web Developer in Ilorin, Nigeria">
+    <meta property="og:description"
+        content="Enoch.Dev is Amurawaiye Enoch, a full-stack developer in Ilorin, Kwara State, Nigeria, building responsive websites and web apps for local and remote clients.">
+    <meta property="og:url" content="https://enochdev.com.ng/">
+    <meta property="og:image" content="https://enochdev.com.ng/enoch.jpg">
+    <meta property="og:image:alt" content="Portrait of Amurawaiye Enoch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Enoch.Dev | Full-Stack Web Developer in Ilorin, Nigeria">
+    <meta name="twitter:description"
+        content="Enoch.Dev is Amurawaiye Enoch, a full-stack developer in Ilorin, Kwara State, Nigeria, building responsive websites and web apps for local and remote clients.">
+    <meta name="twitter:image" content="https://enochdev.com.ng/enoch.jpg">
+    <meta name="twitter:image:alt" content="Portrait of Amurawaiye Enoch">
+    <title>Enoch.Dev | Full-Stack Web Developer in Ilorin, Nigeria</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Person",
+                    "@id": "https://enochdev.com.ng/#person",
+                    "name": "Amurawaiye Enoch Oluwaseun Amurawaiye",
+                    "alternateName": ["Enoch", "Enoch.Dev", "Enoch Dev"],
+                    "url": "https://enochdev.com.ng/",
+                    "image": "https://enochdev.com.ng/enoch.jpg",
+                    "jobTitle": "Full-Stack Web Developer",
+                    "description": "Full-stack web developer based in Ilorin, Kwara State, Nigeria, building modern websites and web applications for clients remotely.",
+                    "email": "enochamurawaiye01@gmail.com",
+                    "telephone": "+2348122569014",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Ilorin",
+                        "addressRegion": "Kwara State",
+                        "addressCountry": "NG"
+                    },
+                    "sameAs": [
+                        "https://www.tiktok.com/@enocholuwaseun123",
+                        "https://x.com/EnochOluwa80305",
+                        "https://www.instagram.com/enochamurawaiye/"
+                    ],
+                    "knowsAbout": [
+                        "JavaScript web development",
+                        "Full-stack web development",
+                        "Website development",
+                        "Responsive web design",
+                        "Web applications",
+                        "UI/UX design",
+                        "Graphic design",
+                        "Search engine optimization"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://enochdev.com.ng/#website",
+                    "url": "https://enochdev.com.ng/",
+                    "name": "Enoch.Dev",
+                    "alternateName": "Enoch Dev",
+                    "inLanguage": "en-NG",
+                    "publisher": {"@id": "https://enochdev.com.ng/#person"}
+                },
+                {
+                    "@type": "ProfilePage",
+                    "@id": "https://enochdev.com.ng/#webpage",
+                    "url": "https://enochdev.com.ng/",
+                    "name": "Enoch.Dev | Full-Stack Web Developer in Ilorin, Nigeria",
+                    "description": "Enoch.Dev is Amurawaiye Enoch, a full-stack web developer based in Ilorin, Kwara State, Nigeria. I build responsive websites and web applications for local and remote clients.",
+                    "isPartOf": {"@id": "https://enochdev.com.ng/#website"},
+                    "mainEntity": {"@id": "https://enochdev.com.ng/#person"}
+                }
+            ]
+        }
+    </script>
     <style>
         :root {
             --black: #0c0c0c;
@@ -37,6 +115,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: clip;
         }
 
         body {
@@ -1142,64 +1221,6 @@
             padding: 0 26px 22px;
         }
 
-        /* ===== TESTIMONIALS ===== */
-        #testimonials {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        #testimonials .head {
-            max-width: 560px;
-            margin-bottom: 56px;
-        }
-
-        #testimonials .eyebrow {
-            color: var(--orange-light);
-        }
-
-        .testi-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .testi-card {
-            background: var(--black-card);
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: var(--radius);
-            padding: 32px 28px;
-            transition: transform .4s var(--ease);
-        }
-
-        .testi-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .testi-quote {
-            font-size: 32px;
-            color: var(--orange);
-            font-family: var(--font-display);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .testi-card p {
-            font-size: 14.5px;
-            color: var(--muted);
-            margin-bottom: 22px;
-        }
-
-        .testi-name {
-            font-weight: 600;
-            font-size: 14.5px;
-            color: var(--white);
-        }
-
-        .testi-role {
-            font-size: 12.5px;
-            color: var(--muted);
-        }
-
         /* ===== CONTACT CTA ===== */
         #contact-cta {
             background: var(--black-card);
@@ -1382,8 +1403,7 @@
 
             .services-grid,
             .pillars,
-            .portfolio-grid,
-            .testi-grid {
+            .portfolio-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1400,6 +1420,12 @@
                 padding: 80px 6vw;
             }
         }
+
+        @media (max-width:560px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1408,7 +1434,7 @@
     <!-- ===== NAVBAR ===== -->
     <nav id="navbar">
         <a href="#home" class="logo-wrap" title="Enoch.Dev">
-            <img src="logo 2.jpeg" alt="">
+            <img src="logo.webp" alt="" width="3264" height="3264" decoding="async">
         </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html#home">Home</a></li>
@@ -1431,7 +1457,9 @@
     <section id="home">
         <div class="hero-grid">
             <div>
-                <div class="hero-eyebrow"><span class="dot"></span> Website Developer & Designer, Nigeria</div>
+
+
+                
                 <h1 class="hero-title">Building websites that make brands <span class="accent">unforgettable.</span>
                 </h1>
                 <p class="hero-sub">I'm Enoch — I design and develop clean, fast, conversion-ready websites for founders
@@ -1441,14 +1469,15 @@
                     <a href="#contact-cta" class="btn btn-outline">Get In Touch</a>
                 </div>
                 <div class="hero-stats">
-                    <div><b>40+</b><span>Projects Shipped</span></div>
-                    <div><b>5+</b><span>Years Experience</span></div>
+                    <div><b>5+</b><span>Projects Shipped</span></div>
+                    <div><b>1.5+</b><span>Years Experience</span></div>
                     <div><b>98%</b><span>Client Satisfaction</span></div>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="logo2">
-                    <img src="logo3.jpeg" alt="">
+                    <img src="enoch.jpg" alt="Portrait of Amurawaiye Enoch" width="864" height="1080"
+                        fetchpriority="high" decoding="async">
                 </div>
             </div>
     </section>
@@ -1458,7 +1487,9 @@
         <div class="container">
             <div class="head-row reveal">
                 <span class="eyebrow">What I Offer</span>
-                <h2 class="section-title">Services built for growth.</h2>
+                <h2 class="section-title">Web development and digital design services.</h2>
+                <p>Based in Ilorin, Kwara State, I work remotely with businesses, organizations and individuals across
+                    Nigeria and beyond on websites, web applications, design and search optimization.</p>
             </div>
             <div class="services-grid reveal-stagger">
                 <div class="service-card">
@@ -1507,22 +1538,25 @@
             <div class="about-grid">
                 <div class="reveal-left">
                     <span class="eyebrow">Meet Enoch.Dev</span>
-                    <h2>I design and build digital experiences that help brands scale.</h2>
-                    <p class="lead">I'm a website developer and designer based in Nigeria, working with founders,
-                        startups, and creatives who want more than just a website — they want a digital presence that
-                        actually works for their business.</p>
-                    <p class="lead">My focus is simple: clean design, solid code, and websites that load fast, look
-                        sharp on every device, and turn visitors into clients. Every project I take on is guided by one
-                        goal — to raise the standard of digital design and development across Africa.</p>
+                    <h2>Thoughtful websites and web applications, built for real people.</h2>
+                    <p class="lead">My name is Amurawaiye Enoch Oluwaseun Amurawaiye, and I work professionally as
+                        Enoch or Enoch.Dev. I'm a full-stack web developer based in Ilorin, Kwara State, Nigeria.</p>
+                    <p class="lead">I build responsive websites and web applications using JavaScript and modern web
+                        technologies. My portfolio includes work for animal nutrition, automotive, education, fashion
+                        and computer-based testing. I work remotely with clients in Ilorin and beyond.</p>
+                    <p class="lead">I start with the purpose and audience of each project, then bring together
+                        considered design, clean code and accessibility. The aim is a site that is useful, clear and
+                        reliable on every device.</p>
                     <div class="about-actions">
                         <a href="#contact-cta" class="btn btn-primary">Contact Me</a>
-                        <a href="#portfolio" class="btn btn-outline">About Me</a>
+                        <a href="work.html" class="btn btn-outline">View My Projects</a>
                     </div>
                 </div>
                 <div class="about-photo reveal-right">
                     <div class="frame-corner fc-tl"></div>
                     <div class="frame-corner fc-br"></div>
-                    <img src="enoch.jpg" alt="Enoch Dev" />
+                    <img src="./workImg/enoch 2.jpg" alt="Enoch working on a web development project"
+                        width="960" height="1280" loading="lazy" decoding="async" />
                     <circle cx="50" cy="36" r="18" stroke="#D2601A" stroke-width="3" />
                     <path d="M20 88C20 68 33 58 50 58C67 58 80 68 80 88" stroke="#D2601A" stroke-width="3"
                         stroke-linecap="round" />
@@ -1570,7 +1604,8 @@
             <div class="portfolio-grid reveal-stagger">
                 <div class="project-card">
                     <div class="project-thumb thumb-1">
-                        <img src="images/vtk.png" alt="">
+                        <img src="images/vtk.webp" alt="Preview of VTK Supplements' animal nutrition website"
+                            width="1580" height="773" loading="lazy" decoding="async">
                     </div>
                     <div class="project-body">
                         <span class="project-tag">Animal Nutrition</span>
@@ -1584,7 +1619,8 @@
 
                 <div class="project-card">
                     <div class="project-thumb thumb-2">
-                        <img src="./workImg/cars-web.png" alt="">
+                        <img src="workImg/cars-web.webp" alt="Preview of the Autobile automotive website"
+                            width="1581" height="765" loading="lazy" decoding="async">
                     </div>
                     <div class="project-body">
                         <span class="project-tag">Automotive</span>
@@ -1598,21 +1634,19 @@
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-thumb thumb-3">
-                        <img src="./workImg/Fashion-Hub (2).png" alt="">
-                    </div>
-                    <div class="project-body">
-                        <span class="project-tag">Luxury Fashion</span>
-                        <h3>Fashion Hub &amp; Co.</h3>
-                        <p>A premium fashion e-commerce platform designed to showcase luxury clothing, elegant wigs,
-                            handcrafted
-                            beads, and stylish accessories through a modern, responsive, and visually captivating
-                            shopping
-                            experience.</p>
-                        <a href="#" class="view-project">View Project →</a>
-                    </div>
-                </div>
+           <div class="project-card">
+          <div class="project-thumb thumb-4">
+            <img src="workImg/Mercyt_college.webp" alt="Preview of the Mercy International College website"
+                width="1600" height="767" loading="lazy" decoding="async">
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Education &amp; CBT</span>
+            <h3>Mercy International College</h3>
+            <p>A modern educational platform designed for Mercy International College to facilitate online learning,
+              student management, and academic administration.</p>
+            <a href="https://enoch-international-college.vercel.app/login.html" class="view-project">View Project →</a>
+          </div>
+        </div>
             </div>
         </div>
         </div>
@@ -1623,7 +1657,7 @@
         <div class="container">
             <div class="head-row reveal">
                 <span class="eyebrow">Why Enoch.Dev</span>
-                <h2 class="section-title">Why choose us.</h2>
+                <h2 class="section-title">Why work with me.</h2>
             </div>
             <div class="why-grid reveal-stagger">
                 <div class="why-card">
@@ -1653,7 +1687,7 @@
                 </div>
 
                 <div class="why-card vision">
-                    <h3>Our Vision</h3>
+                    <h3>My Vision</h3>
                     <p>To empower Nigerian brands with world-class digital solutions.</p>
                     <p>To craft digital experiences that drive growth and results.</p>
                     <p>To raise the standard of design and development in Africa.</p>
@@ -1662,7 +1696,7 @@
 
             <div class="industries reveal">
                 <span class="eyebrow">Who I Work With</span>
-                <h3>Industries We Work With</h3>
+                <h3>Industries I Work With</h3>
                 <div class="industries-list">
                     <span class="industry-pill">Real Estate & Property Brands</span>
                     <span class="industry-pill">Fashion & Lifestyle Startups</span>
@@ -1691,7 +1725,7 @@
                         tutorials, and real-world insights to help you master website design and development.</p>
                     <p>You'll get full mentorship support — I'll guide you whenever you're stuck or need clarification,
                         ensuring you understand each concept clearly.</p>
-                    <a href="https://wa.me/2348122569014    " class="btn btn-black">Enroll Now on WhatsApp</a>
+                    <a href="https://wa.me/2348122569014" class="btn btn-black">Enroll Now on WhatsApp</a>
                 </div>
                 <div class="mentor-card">
                     <div class="mentor-price">₦30,000</div>
@@ -1757,50 +1791,14 @@
         </div>
     </section>
 
-    <!-- ===== TESTIMONIALS ===== -->
-    <section id="testimonials" class="section">
-        <div class="container">
-            <div class="head reveal">
-                <span class="eyebrow">Feedback From My Clients</span>
-                <h2 class="section-title">What our clients say about working with us.</h2>
-            </div>
-            <div class="testi-grid reveal-stagger">
-                <div class="testi-card">
-                    <div class="testi-quote">"</div>
-                    <p>I hired Enoch.Dev to design and develop my company's website, and I couldn't be more pleased with
-                        the results. The design was sleek and modern, and the website functions flawlessly. The process
-                        was smooth and communication was always clear.</p>
-                    <div class="testi-name"> vtk Iorin</div>
-                    <div class="testi-role"> Animal Nutrition</div>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-quote">"</div>
-                    <p>Working with Enoch.Dev was an amazing experience! They understood exactly what I wanted for my
-                        personal brand's website and delivered beyond my expectations. Their attention to detail was
-                        impressive.</p>
-                    <div class="testi-name"> Mr David</div>
-                    <div class="testi-role"> Car websie</div>
-                </div>
-                <div class="testi-card">
-                    <div class="testi-quote">"</div>
-                    <p>Enoch.Dev is incredibly professional and proactive. They transformed my outdated website into
-                        something fresh, responsive, and user-friendly. I'm thrilled with the end result and would
-                        recommend their expertise.</p>
-                    <div class="testi-name"> Enoch.Dev</div>
-                    <div class="testi-role"> For portfolio</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== CONTACT CTA ===== -->
     <section id="contact-cta" class="section">
         <div class="inner reveal">
             <span class="eyebrow">Let's Work Together</span>
             <h2>Need a website developer in Nigeria?</h2>
-            <p>Stay in touch — have a project in mind or need an expert website designer and developer? Get in touch
-                with me today and let's start a conversation.</p>
-            <a href="https://wa.me/2348122569014" class="btn btn-primary">Contact Us</a>
+            <p>Based in Ilorin, Kwara State, I work remotely with clients who need a clear, responsive website or web
+                application. Tell me what you're building and let's talk.</p>
+            <a href="contact.html" class="btn btn-primary">Contact Enoch</a>
         </div>
     </section>
 
@@ -1812,17 +1810,10 @@
                 <p>Website developer & designer helping brands across Africa build a digital presence that gets results.
                 </p>
                 <div class="footer-social">
-                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <a href="https://www.instagram.com/enochamurawaiye/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="5" />
                             <circle cx="12" cy="12" r="4" />
                             <circle cx="17.5" cy="6.5" r="1" />
-                        </svg></a>
-                    <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="3" />
-                            <line x1="8" y1="11" x2="8" y2="16" />
-                            <line x1="8" y1="8" x2="8" y2="8" />
-                            <line x1="12" y1="11" x2="12" y2="16" />
-                            <path d="M12 13c0-2 4-2 4 0v3" />
                         </svg></a>
                     <a href="https://wa.me/2348122569014" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
                             <path d="M3 21l1.5-4.5A8 8 0 1 1 8.5 19.5L3 21z" />
@@ -1849,15 +1840,15 @@
             <div class="footer-col">
                 <h5>Get In Touch</h5>
                 <ul>
-                    <li><a href="mailto:hello@enoch.dev">hello@enoch.dev</a></li>
+                    <li><a href="mailto:enochamurawaiye01@gmail.com">enochamurawaiye01@gmail.com</a></li>
                     <li><a href="https://wa.me/2348122569014">WhatsApp</a></li>
-                    <li><a href="#">ilorin, Nigeria</a></li>
+                    <li>Ilorin, Kwara State, Nigeria · Available remotely</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <span>Copyright © 2026 Enoch.Dev. All rights reserved.</span>
-            <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+            <span>Remote freelance web development from Ilorin, Nigeria</span>
         </div>
     </footer>
 

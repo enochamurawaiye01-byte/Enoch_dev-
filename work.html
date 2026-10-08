@@ -4,12 +4,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="icon" type="image/jpeg" href="logo 2.jpeg">
-    <title>Enoch.Dev — Website Developer & Designer in Nigeria</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0c0c0c">
+  <meta name="application-name" content="Enoch.Dev">
+  <meta name="description"
+    content="Browse Enoch.Dev's web projects: websites and applications for education, automotive, e-commerce and animal nutrition, built in Ilorin, Nigeria.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://enochdev.com.ng/work.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enoch.Dev">
+  <meta property="og:title" content="Web Development Projects | Enoch.Dev">
+  <meta property="og:description"
+    content="Browse Enoch.Dev's web projects: websites and applications for education, automotive, e-commerce and animal nutrition, built in Ilorin, Nigeria.">
+  <meta property="og:url" content="https://enochdev.com.ng/work.html">
+  <meta property="og:image" content="https://enochdev.com.ng/enoch.jpg">
+  <meta property="og:image:alt" content="Portrait of Amurawaiye Enoch">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Web Development Projects | Enoch.Dev">
+  <meta name="twitter:description"
+    content="Browse Enoch.Dev's web projects: websites and applications for education, automotive, e-commerce and animal nutrition, built in Ilorin, Nigeria.">
+  <meta name="twitter:image" content="https://enochdev.com.ng/enoch.jpg">
+  <meta name="twitter:image:alt" content="Portrait of Amurawaiye Enoch">
+  <title>Web Development Projects | Enoch.Dev</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://enochdev.com.ng/work.html#webpage",
+      "url": "https://enochdev.com.ng/work.html",
+      "name": "Web Development Projects | Enoch.Dev",
+      "description": "Websites and web applications in Enoch.Dev's portfolio.",
+      "isPartOf": {"@id": "https://enochdev.com.ng/#website"},
+      "about": {"@id": "https://enochdev.com.ng/#person"},
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "numberOfItems": 5,
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "item": {"@type": "CreativeWork", "name": "VTK Supplements", "description": "Animal supplement website showcasing products for pet health.", "url": "https://vtk.com.ng"}},
+          {"@type": "ListItem", "position": 2, "item": {"@type": "CreativeWork", "name": "Autobile", "description": "Automotive platform showcasing premium vehicles.", "url": "https://autobile.vercel.app/"}},
+          {"@type": "ListItem", "position": 3, "item": {"@type": "CreativeWork", "name": "Fashion Hub & Co.", "description": "Responsive fashion e-commerce project."}},
+          {"@type": "ListItem", "position": 4, "item": {"@type": "CreativeWork", "name": "KWIL CBT", "description": "Computer-based testing platform."}},
+          {"@type": "ListItem", "position": 5, "item": {"@type": "CreativeWork", "name": "Mercy International College", "description": "Educational platform for online learning and school administration.", "url": "https://enoch-international-college.vercel.app/login.html"}}
+        ]
+      }
+    }
+  </script>
   <style>
     :root {
       --black: #0c0c0c;
@@ -773,6 +820,12 @@
         padding: 140px 6vw 70px;
       }
     }
+
+    @media (max-width:560px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -780,8 +833,8 @@
 
   <!-- ===== NAVBAR ===== -->
   <nav id="navbar">
-    <a href="index.html#home" class="logo-wrap" title="Enoch.Dev">
-      <img src="logo 2.jpeg" alt="">
+    <a href="index.html#home" class="logo-wrap" aria-label="Enoch.Dev home" title="Enoch.Dev">
+      <img src="logo.webp" alt="" width="3264" height="3264" decoding="async">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#home">Home</a></li>
@@ -804,21 +857,23 @@
   <section id="work-header">
     <div class="container">
       <span class="eyebrow">My Work</span>
-      <h1>A closer look at the brands I've helped build online.</h1>
-      <p>A collection of websites, redesigns, and digital brand projects — each one built for clarity, speed, and
-        results.</p>
+      <h1>Web development projects by Enoch.Dev</h1>
+      <p>Explore websites and web applications from education, automotive, fashion, animal nutrition and computer-based
+        testing. I’m a full-stack developer based in Ilorin, Kwara State, and work remotely with clients.</p>
     </div>
   </section>
 
   <!-- ===== WORK GRID (6 CARDS) ===== -->
   <section id="work-grid" class="section">
     <div class="container">
+      <h2 class="eyebrow">Selected projects</h2>
       <div class="portfolio-grid reveal-stagger">
 
         <div class="project-card">
           <div class="project-thumb thumb-1">
-            <img src="/images/vtk.png" alt="">
-            
+            <img src="images/vtk.webp" alt="Preview of VTK Supplements' animal nutrition website"
+              width="1580" height="773" loading="lazy" decoding="async">
+
           </div>
           <div class="project-body">
             <span class="project-tag">Animal Nutrition</span>
@@ -831,13 +886,16 @@
 
         <div class="project-card">
           <div class="project-thumb thumb-2">
-           <img src="/workImg/cars-web.png" alt="">
+            <img src="workImg/cars-web.webp" alt="Preview of the Autobile automotive website"
+              width="1581" height="765" loading="lazy" decoding="async">
           </div>
           <div class="project-body">
             <span class="project-tag">Automotive</span>
             <h3>Autobile</h3>
-            <p>A world-class luxury automotive platform engineered with modern web technologies to deliver cinematic vehicle showcases,
-               smooth animations, responsive design, and an exceptional user experience for exploring premium automobiles.
+            <p>A world-class luxury automotive platform engineered with modern web technologies to deliver cinematic
+              vehicle showcases,
+              smooth animations, responsive design, and an exceptional user experience for exploring premium
+              automobiles.
             </p>
             <a href="https://autobile.vercel.app/" class="view-project">View Project →</a>
           </div>
@@ -845,39 +903,49 @@
 
         <div class="project-card">
           <div class="project-thumb thumb-3">
-            <img src="./workImg/Fashion-Hub (2).png ">
+            <img src="workImg/Fashion-Hub.webp" alt="Preview of the Fashion Hub &amp; Co. ecommerce website"
+              width="1581" height="767" loading="lazy" decoding="async">
           </div>
           <div class="project-body">
             <span class="project-tag">Luxury Fashion</span>
             <h3>Fashion Hub &amp; Co.</h3>
             <p>A premium fashion e-commerce platform designed to showcase luxury clothing, elegant wigs, handcrafted
-                beads, and stylish accessories through a modern, responsive, and visually captivating shopping
-                experience.</p>
-            <a href="#" class="view-project">View Project →</a>
+              beads, and stylish accessories through a modern, responsive, and visually captivating shopping
+              experience.</p>
+            <a href="mailto:enochamurawaiye01@gmail.com?subject=Question%20about%20Fashion%20Hub%20%26%20Co."
+              class="view-project">Ask about this project →</a>
           </div>
         </div>
 
-<div class="project-card">
-  <div class="project-thumb thumb-3">
-    <img src="./images/tranquil.png" alt="Tranquil Suite">
-  </div>
 
-  <div class="project-body">
-    <span class="project-tag">Luxury Hotel Suite</span>
-
-    <h3>Tranquil Suite</h3>
-
-    <p>
-      Tranquil Suite is a premium hotel accommodation offering a peaceful and
-      luxurious stay. Designed with modern elegance, spacious rooms, world-class
-      amenities, and exceptional hospitality, it provides guests with the perfect
-      blend of comfort, relaxation, and sophistication.
-    </p>
-
-    <a href="#" class="view-project">View Project →</a>
-  </div>
-</div>
-
+        <div class="project-card">
+          <div class="project-thumb thumb-4">
+            <img src="workImg/kwil-cbt.webp" alt="Preview of the KWIL CBT examination platform"
+              width="1600" height="765" loading="lazy" decoding="async">
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Education &amp; CBT</span>
+            <h3>KWIL CBT</h3>
+            <p>A computer-based testing platform built for Kwara Innovation Lab to help students take course-specific
+              assessments through a secure, structured, and user-friendly online examination experience.</p>
+            <a href="https://kwil-exam.vercel.app/" class="view-project">View Project →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb thumb-4">
+            <img src="workImg/Mercyt_college.webp" alt="Preview of the Mercy International College website"
+              width="1600" height="767" loading="lazy" decoding="async">
+          </div>
+          <div class="project-body">
+            <span class="project-tag">Education &amp; CBT</span>
+            <h3>Mercy International College</h3>
+            <p>A modern educational platform designed for Mercy International College to facilitate online learning,
+              student management, and academic administration.</p>
+            <a href="https://enoch-international-college.vercel.app/login.html" class="view-project">View Project →</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ===== TRUSTED ===== -->
@@ -885,12 +953,11 @@
     <div class="container">
       <div class="trusted-grid">
         <div class="reveal-left">
-          <span class="eyebrow">Why Brands Choose Enoch.Dev</span>
-          <h2>One of the trusted places to get a premium website in Nigeria.</h2>
-          <p class="lead">From property brands in Lagos to founders and NGOs across the country, I've built a reputation
-            on clean design, solid code, and websites that actually perform — not just look good in a screenshot.</p>
-          <p class="lead">Every project gets the same standard: fast load times, mobile-first design, and a process that
-            keeps you in the loop from first draft to launch.</p>
+          <span class="eyebrow">How I Work</span>
+          <h2>A clear, collaborative process from first brief to launch.</h2>
+          <p class="lead">Each project starts with its goals and intended users. I focus on clear design, dependable
+            code and a responsive experience, and keep clients informed from the first draft through launch.</p>
+          <p class="lead">Based in Ilorin, Kwara State, I work remotely with clients in Nigeria and beyond.</p>
           <div class="trusted-badges">
             <span class="trusted-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -899,7 +966,7 @@
             <span class="trusted-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
                 stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12" />
-              </svg> Trusted across industries</span>
+              </svg> Projects across several industries</span>
             <span class="trusted-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
                 stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12" />
@@ -908,20 +975,20 @@
         </div>
         <div class="trusted-stats reveal-stagger">
           <div class="trusted-stat">
-            <b>10+</b>
-            <span>Projects Delivered</span>
-          </div>
-          <div class="trusted-stat">
-            <b>98%</b>
-            <span>Client Satisfaction</span>
-          </div>
-          <div class="trusted-stat">
             <b>5+</b>
-            <span>Years of Experience</span>
+            <span>Projects Shipped</span>
           </div>
           <div class="trusted-stat">
-            <b>100%</b>
-            <span>Custom-Built Websites</span>
+            <b>1.5+</b>
+            <span>Years Experience</span>
+          </div>
+          <div class="trusted-stat">
+            <b>Ilorin</b>
+            <span>Based in Kwara State</span>
+          </div>
+          <div class="trusted-stat">
+            <b>Remote</b>
+            <span>Freelance Work</span>
           </div>
         </div>
       </div>
@@ -934,7 +1001,7 @@
       <span class="eyebrow">Let's Work Together</span>
       <h2>Have a project in mind?</h2>
       <p>Let's talk about your idea and turn it into a website that actually works for your business.</p>
-      <a href="mailto:hello@enoch.dev" class="btn btn-primary">Contact Us</a>
+      <a href="contact.html" class="btn btn-primary">Contact Enoch</a>
     </div>
   </section>
 
@@ -945,19 +1012,12 @@
         <a href="index.html#home" class="logo"><span class="logo-mark">E</span>Enoch<span class="accent">.Dev</span></a>
         <p>Website developer & designer helping brands across Africa build a digital presence that gets results.</p>
         <div class="footer-social">
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <a href="https://www.instagram.com/enochamurawaiye/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
               <rect x="3" y="3" width="18" height="18" rx="5" />
               <circle cx="12" cy="12" r="4" />
               <circle cx="17.5" cy="6.5" r="1" />
             </svg></a>
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-              <rect x="3" y="3" width="18" height="18" rx="3" />
-              <line x1="8" y1="11" x2="8" y2="16" />
-              <line x1="8" y1="8" x2="8" y2="8" />
-              <line x1="12" y1="11" x2="12" y2="16" />
-              <path d="M12 13c0-2 4-2 4 0v3" />
-            </svg></a>
-          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+          <a href="https://wa.me/2348122569014" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
               <path d="M3 21l1.5-4.5A8 8 0 1 1 8.5 19.5L3 21z" />
             </svg></a>
         </div>
@@ -982,15 +1042,15 @@
       <div class="footer-col">
         <h5>Get In Touch</h5>
         <ul>
-          <li><a href="mailto:hello@enoch.dev">hello@enoch.dev</a></li>
+          <li><a href="mailto:enochamurawaiye01@gmail.com">enochamurawaiye01@gmail.com</a></li>
           <li><a href="https://wa.me/2348122569014">WhatsApp</a></li>
-          <li><a href="#">ilorin, Nigeria</a></li>
+          <li>Ilorin, Kwara State, Nigeria · Available remotely</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>Copyright © 2026 Enoch.Dev. All rights reserved.</span>
-      <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+      <span>Remote freelance web development from Ilorin, Nigeria</span>
     </div>
   </footer>
 
